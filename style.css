@@ -12,4 +12,29 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: var(--system-font-family), var(--import-font-family);
+  display: grid;
+  grid-template-rows: 90px 1fr 50px;
+}
+
+div.header {
+  background-color: #d1d5db;
+  display: flex;
+  align-items: center;
+}
+
+div.header > p {
+  padding: 0px 0px 0px 30px;
+  margin: 0px;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+div.content {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+}
+
+div.footer {
+  background-color: #d1d5db;
 }
