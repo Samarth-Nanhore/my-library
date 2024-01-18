@@ -11,7 +11,7 @@ body {
   height: 100vh;
   margin: 0px;
   padding: 0px;
-  font-family: var(--system-font-family), var(--import-font-family);
+  font-family: "Roboto", sans-serif;
   display: grid;
   grid-template-rows: 90px 1fr 50px;
 }
@@ -37,4 +37,34 @@ div.content {
 
 div.footer {
   background-color: #d1d5db;
+}
+
+.form-container {
+  padding: 50px 20px 0px 50px;
+  border-right: 1px solid;
+  border-right-color: #d1d5db;
+}
+
+form#newForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+input {
+  width: 300px;
+  height: 30px;
+  padding: 2px;
+  font-size: 18px;
+  box-shadow: 0 3px 5px rgb(0 0 0 / 0.1);
+}
+
+button {
+  width: 80px;
 }
