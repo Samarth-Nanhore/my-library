@@ -21,6 +21,11 @@ function getInputDetail(event) {
   let author = authorInputElement.value;
   let pages = pagesInputElement.value;
   let read = readInputElement.value;
-  console.log(title, author, pages, read);
+  getNewObject(title, author, pages, read);
   newForm.reset();
+}
+
+function getNewObject(title, author, pages, read) {
+  let newObject = new Book(title, author, pages, read);
+  console.log(newObject);
 }
