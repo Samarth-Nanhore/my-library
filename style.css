@@ -69,6 +69,8 @@ button {
   width: 80px;
 }
 
+/* Testing card component */
+
 .cards-container .card {
   border: 1px solid gray;
   display: flex;
@@ -122,4 +124,12 @@ button {
 .card-btn div:hover {
   background-color: #4f46e5;
   box-shadow: 0 3px 5px rgb(0 0 0 / 0.1);
+}
+
+div.cards-container {
+  padding: 50px 20px 50px 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+  column-gap: 10px;
+  row-gap: 30px;
 }
