@@ -12,6 +12,7 @@ let titleInputElement = document.getElementById("title");
 let authorInputElement = document.getElementById("author");
 let pagesInputElement = document.getElementById("pages");
 let readInputElement = document.getElementById("read");
+let library = [];
 
 newForm.addEventListener("submit", getInputDetail);
 
@@ -27,5 +28,17 @@ function getInputDetail(event) {
 
 function getNewObject(title, author, pages, read) {
   let newObject = new Book(title, author, pages, read);
-  console.log(newObject);
+  addNewObjectInArray(newObject);
 }
+
+function addNewObjectInArray(object) {
+  library.push(object); // array
+  let validLibrary = updateObject(library);
+  console.log(validLibrary);
+}
+
+let updateObject = (arr) => {
+  return arr.map((book, index) => {
+    return { id: index + 1, ...book };
+  });
+};
