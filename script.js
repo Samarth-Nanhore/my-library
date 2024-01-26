@@ -59,7 +59,7 @@ let authorValue;
 let pageValue;
 let readValue;
 
-let createCard = () => {
+let createCard = (title, author, pages, read) => {
   oneCard = document.createElement("div");
   oneCard.classList.add("card"); // from style css
   cardContainerElement.appendChild(oneCard);
@@ -92,4 +92,11 @@ let createCard = () => {
   readContainer.innerHTML = "<p>Have you read it?</p>";
   readValue = document.createElement("p");
   readContainer.appendChild(readValue);
+
+  titleValue.textContent = `${title}`;
+  authorValue.textContent = `${author}`;
+  pageValue.textContent = `${pages} Pages`;
+  readValue.textContent = `${read}`;
 };
+
+createCard();
