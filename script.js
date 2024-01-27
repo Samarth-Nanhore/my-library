@@ -59,7 +59,7 @@ let authorValue;
 let pageValue;
 let readValue;
 
-let createCard = (title, author, pages, read) => {
+let createCard = (title, author, pages, read, idValue) => {
   oneCard = document.createElement("div");
   oneCard.classList.add("card"); // from style css
   cardContainerElement.appendChild(oneCard);
@@ -97,6 +97,9 @@ let createCard = (title, author, pages, read) => {
   authorValue.textContent = `${author}`;
   pageValue.textContent = `${pages} Pages`;
   readValue.textContent = `${read}`;
+
+  createRemoveBtn(idValue);
+  createStatusBtn(idValue);
 };
 
 const getNewCardUI = (libraryArray) => {
@@ -104,6 +107,21 @@ const getNewCardUI = (libraryArray) => {
   let author = libraryArray[libraryArray.length - 1].author;
   let pages = libraryArray[libraryArray.length - 1].pages;
   let read = libraryArray[libraryArray.length - 1].read;
+  let idValue = libraryArray[libraryArray.length - 1].id;
 
-  createCard(title, author, pages, read);
+  createCard(title, author, pages, read, idValue);
+};
+
+const createRemoveBtn = (idValue) => {
+  let removeBtn = document.createElement("div");
+  removeBtn.textContent = "Remove";
+  removeBtn.id = `${idValue}`;
+  btnContainer.appendChild(removeBtn);
+};
+
+const createStatusBtn = (idValue) => {
+  let statusBtn = document.createElement("div");
+  statusBtn.textContent = "Change Status";
+  statusBtn.id = `${idValue}`;
+  btnContainer.appendChild(statusBtn);
 };
