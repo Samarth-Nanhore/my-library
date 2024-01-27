@@ -62,12 +62,14 @@ let readValue;
 let createCard = (title, author, pages, read, idValue) => {
   oneCard = document.createElement("div");
   oneCard.classList.add("card"); // from style css
+  oneCard.id = idValue;
   cardContainerElement.appendChild(oneCard);
 
   titleContainer = document.createElement("div");
   authorContainer = document.createElement("div");
   pageContainer = document.createElement("div");
   readContainer = document.createElement("div");
+
   btnContainer = document.createElement("div");
   btnContainer.classList.add("card-btn");
 
@@ -91,6 +93,7 @@ let createCard = (title, author, pages, read, idValue) => {
 
   readContainer.innerHTML = "<p>Have you read it?</p>";
   readValue = document.createElement("p");
+  readValue.id = idValue;
   readContainer.appendChild(readValue);
 
   titleValue.textContent = `${title}`;
@@ -117,6 +120,7 @@ const createRemoveBtn = (idValue) => {
   removeBtn.textContent = "Remove";
   removeBtn.id = `${idValue}`;
   btnContainer.appendChild(removeBtn);
+  removeBtn.addEventListener("click", getRemoveElement);
 };
 
 const createStatusBtn = (idValue) => {
@@ -124,4 +128,35 @@ const createStatusBtn = (idValue) => {
   statusBtn.textContent = "Change Status";
   statusBtn.id = `${idValue}`;
   btnContainer.appendChild(statusBtn);
+  statusBtn.addEventListener("click", changeStatus);
 };
+
+function getRemoveElement(event) {
+  let elementId = event.target.id;
+  let everyCardsElements = document.querySelectorAll(
+    "div.cards-container > div.card"
+  );
+
+  everyCardsElements.forEach((card) => {
+    if (card.id === elementId) {
+      card.remove();
+    }
+  });
+}
+
+function changeStatus(event) {
+  let elementId = event.target.id;
+  let everyRead = document.querySelectorAll(
+    "div.cards-container > div.card > div:nth-child(4) > p:nth-child(2)"
+  ); // select values of read
+
+  everyRead.forEach((read) => {
+    if (read.id === elementId) {
+      if (read.textContent === "Yes") {
+        read.textContent = "No";
+      } else if (read.textContent === "No") {
+        read.textContent = "Yes";
+      }
+    }
+  });
+}
