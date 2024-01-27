@@ -34,7 +34,7 @@ function getNewObject(title, author, pages, read) {
 function addNewObjectInArray(object) {
   library.push(object); // array
   let validLibrary = updateObject(library);
-  console.log(validLibrary);
+  getNewCardUI(validLibrary);
 }
 
 let updateObject = (arr) => {
@@ -99,4 +99,11 @@ let createCard = (title, author, pages, read) => {
   readValue.textContent = `${read}`;
 };
 
-createCard();
+const getNewCardUI = (libraryArray) => {
+  let title = libraryArray[libraryArray.length - 1].title;
+  let author = libraryArray[libraryArray.length - 1].author;
+  let pages = libraryArray[libraryArray.length - 1].pages;
+  let read = libraryArray[libraryArray.length - 1].read;
+
+  createCard(title, author, pages, read);
+};
